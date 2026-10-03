@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>mercury chat</title><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/style.css"><script src="/app.js" type="module"></script></head>
+<body>
+<div class="app">
+  <aside>
+    <a class="brand" href="/"><span class="mark">M</span><span>mercury chat<small data-i18n="subtitle">Local conversation workspace</small></span></a>
+    <button id="newChat" class="new" data-i18n="newChat">+ New chat</button>
+    <section class="connection"><h2 data-i18n="connect">Connect to Mercury</h2><p class="status" id="status" role="status" data-i18n="initializing">Initializing…</p>
+      <form id="keyForm"><label for="apiKey" data-i18n="keyLabel">API key</label><input id="apiKey" name="mercury-key" type="password" placeholder="Enter your API key" data-i18n-placeholder="keyPlaceholder" autocomplete="off" spellcheck="false" maxlength="4096"><button id="saveKey" type="submit" data-i18n="saveKey">Use key</button></form>
+      <div class="actions"><button id="check" class="text-button" data-i18n="check">Check connection</button><button id="forget" class="text-button" data-i18n="forget">Forget key</button></div>
+      <p class="note" data-i18n="keyNote">Your key stays in local server memory. It is cleared when the server stops or after 1 hour of inactivity.</p>
+    </section>
+    <div class="endpoint"><span data-i18n="modelLabel">Model</span><strong>qwen3-235b</strong><span data-i18n="apiLabel">API address</span><code>127.0.0.1:18000/v1</code><p data-i18n="tunnelNote">Keep your SSH tunnel window open</p></div>
+    <div class="language"><label for="language" data-i18n="languageLabel">Language</label><select id="language"><option value="en" lang="en">English</option><option value="zh" lang="zh-CN">中文</option></select></div>
+    <footer><span class="local-dot"></span><span data-i18n="localNote">Local access only · No saved chat history</span></footer>
+  </aside>
+  <main>
+    <header><div><h1 data-i18n="chat">Conversation</h1><p>Qwen3 235B <span>· Mercury</span></p></div><span class="badge" data-i18n="localBadge">LOCAL</span></header>
+    <div id="messages" class="messages" role="log" aria-label="Conversation messages" data-i18n-aria="messagesLabel" aria-live="polite">
+      <div id="welcome" class="welcome"><span class="welcome-icon">M</span><h2 data-i18n="welcomeTitle">Start a conversation</h2><p class="welcome-text" data-i18n="welcomeText">Enter your API key, then send a question.
+Follow up to keep the context of this conversation.</p><div class="chips"><button data-prompt-key="promptExplain" data-i18n="explain">Explain a concept</button><button data-prompt-key="promptRewrite" data-i18n="rewrite">Refine some writing</button><button data-prompt-key="promptAnalyze" data-i18n="analyze">Work through a problem</button></div></div>
+    </div>
+    <div class="composer-wrap"><div id="notice" class="notice" role="alert" hidden></div><form id="chatForm" class="composer"><label class="sr-only" for="prompt" data-i18n="promptLabel">Message</label><textarea id="prompt" placeholder="Type a message to start chatting…" data-i18n-placeholder="promptPlaceholder" rows="2" maxlength="100000"></textarea><div class="composer-bottom"><span id="hint" data-i18n="keyboardHint">Enter to send · Shift + Enter for a new line</span><button id="send" type="submit" disabled data-i18n="send">Send ↑</button><button id="stop" type="button" hidden data-i18n="stop">■ Stop</button></div></form><p class="privacy" data-i18n="privacy">This page holds your conversation only until you refresh. Check important information in model replies.</p></div>
+  </main>
+</div>
+</body></html>

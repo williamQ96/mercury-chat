@@ -1,0 +1,6 @@
+.chat.pid
+node_modules/
+test-artifacts/
+*.log
+.env
+.env.*
